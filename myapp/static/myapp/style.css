@@ -1,0 +1,22 @@
+h1 {
+    font-size: 16pt;
+    color: darkgreen;
+    font-style: italic;
+    text_align: center;
+}
+
+
+.hbar1 {
+    display: inline;
+    margin: 15px;
+}
+
+body {
+    background-color: darkkhaki;
+    color: red;
+}
+
+.newClass
+{
+    background-color: darkkhaki;
+}

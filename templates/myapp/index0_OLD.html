@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eBook App</title>
+</head>
+<body>
+
+    {% if booklist %}
+        <h2>List of Books</h2>
+        <ol>
+            {% for book  in booklist %}
+                <li> {{book.title}} </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available books!</strong>
+    {% endif %}
+<p><a href="/myapp/about">About page(hardcoded)</a></p>
+<a href="{% url 'myapp:about' %}">About Page</a>
+</body>
+
+</html>

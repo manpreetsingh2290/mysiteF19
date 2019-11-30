@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+        <title>eBook APP - {% block title %}Welcome!{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>{% block myhdg %}Hello  {{ request.user.username }} {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+        </div>
+        <hr />
+        <div class="newClass">
+            <ul>
+                <li class="hbar1"><a href="/myapp/about/">Find out about this site</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:index' %}">Click here to return to main page</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:findbooks' %}">Find Books</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:place_order' %}">Place Order</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:review' %}">Review Book</a></li><br/><br/>
+
+                {% if request.user.username %}
+                <li class="hbar1"><a href = "{% url 'myapp:logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="hbar1"><a href = "{% url 'myapp:login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>

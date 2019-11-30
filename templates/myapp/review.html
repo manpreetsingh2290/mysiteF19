@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    <form action="{% url 'myapp:review' %}" method="post">
+        {% if RatingErr %}
+            <h3 style="color:Red">{{ RatingErr }}</h3>
+        {% endif %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit1" value="Submit" />
+    </form>
+
+{% endblock %}

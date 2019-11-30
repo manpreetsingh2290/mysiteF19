@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Books in order{% endblock %}
+
+
+ {% block body_block %}
+
+     {% if order %}
+         Order ID: {{ order.id }}
+         <br>Member name: {{ order.member.first_name }}
+         <br>Order type:
+         {% if order.order_type == 0 %}
+             Purchase
+         {%  else %}
+             Borrowed
+          {% endif %}
+
+     {% endif %}
+       {% if books %}
+        <h2>List of Books in order({{ order.id }}) are:</h2>
+            <ol>
+            {% for book  in books %}
+
+                <li> Title:{{book.title}}</li>
+                Price:{{book.price}}<br>
+                Number of Pages:{{book.num_pages}}<br><br>
+
+            {% endfor %}
+           </ol>
+
+
+    {% else %}
+        <strong>There are no books in the order</strong>
+    {% endif %}
+
+ {% endblock %}

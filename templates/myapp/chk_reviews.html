@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+    {% if member %}
+    {% if book %}
+
+        <ul>
+        <li><b>Title:</b> {{ book.title }}</li>
+        <li><b>Price:</b> $ {{ book.price }}</li>
+        <li><b>Avg. Rating:</b> {{ book.avgRating }}</li>
+        </ul>
+    {% else %}
+        <h2 align="center">Book doesn't exist</h2>
+    {% endif %}
+{% else %}
+
+    <h2 align="center">You are not a registered client!</h2>
+{% endif %}
+
+{% endblock %}

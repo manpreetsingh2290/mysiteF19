@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Books{% endblock %}
+
+
+ {% block body_block %}
+       {% if booklist %}
+        <h2>List of Books Requested by:{{ name }}, Category:{{ category }}, Max_Price:{{ max_price }}</h2>
+            <ol>
+            {% for book  in booklist %}
+
+                <li> Title:{{book.title}}</li>
+                Price:{{book.price}}<br>
+                Number of Pages:{{book.num_pages}}<br><br>
+
+            {% endfor %}
+           </ol>
+
+
+    {% else %}
+        <strong>There are no available books for the search criteria!</strong>
+    {% endif %}
+
+ {% endblock %}
